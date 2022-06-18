@@ -1,0 +1,24 @@
+{
+    "name": "vk-wallet-api",
+    "version": "1.0.0",
+    "description": "Библиотека для использования Api Wallet",
+    "main": "index.js",
+    "scripts": {
+      "test": "exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/lehada/vk-wallet-api.git"
+    },
+    "keywords": [
+      "vk",
+      "wallet"
+    ],
+    "author": "https://vk.com/ymenaidtopa.json",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/lehada/vk-wallet-api/issues"
+    },
+    "homepage": "https://github.com/lehada/vk-wallet-api#readme"
+  }
+  
