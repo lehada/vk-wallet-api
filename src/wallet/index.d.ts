@@ -16,4 +16,6 @@ declare class Wallet {
     public createCallBackServer(url: string): string;
 
     public deleteCallBackServer(): string;
+
+    public validateCallBack(event: any, secret: any): boolean
 }

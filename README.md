@@ -33,7 +33,7 @@ const wallet = new Wallet(token);
 ---
 
 ### Создания ссылки для оплаты 
-- Метод - payload (необяз.) - Полезная нагрузка
+- Параметр - payload (необяз.) - Полезная нагрузка
 
 ```js
 const { Wallet } = require('vk-wallet-api');
@@ -48,7 +48,7 @@ const wallet = new Wallet(token);
 ---
 
 ### Создания ссылки для оплаты 
-- Метод - payload (необяз.) - Полезная нагрузка
+- Параметр - payload (необяз.) - Полезная нагрузка
 
 ```js
 const { Wallet } = require('vk-wallet-api');
@@ -63,9 +63,9 @@ const wallet = new Wallet(token);
 ---
 
 ### Создания ссылки для оплаты 
-- Метод - type (необяз.) - Тип перевода (in, out, all) (по умолчанию all)  
-- Метод - offset (необяз.) - Смещение (по умолчанию 0)  
-- Метод - limit (необяз.) - Лимит отобращения (по умолчанию 20)  
+- Параметр - type (необяз.) - Тип перевода (in, out, all) (по умолчанию all)  
+- Параметр - offset (необяз.) - Смещение (по умолчанию 0)  
+- Параметр - limit (необяз.) - Лимит отобращения (по умолчанию 20)  
 
 ```js
 const { Wallet } = require('vk-wallet-api');
@@ -84,7 +84,7 @@ const wallet = new Wallet(token);
 ---
 
 ### Проверка на регистрацию пользователя в сервисе
-- Метод - userId (обяз.) - Айди пользователя
+- Параметр - userId (обяз.) - Айди пользователя
 
 ```js
 const { Wallet } = require('vk-wallet-api');
@@ -99,9 +99,9 @@ const wallet = new Wallet(token);
 ---
 
 ### Создание нового перевода
-- Метод - toId (обяз.) - Кому переводим
-- Метод - amount (обяз.) - Сумма перевода
-- Метод - payload (необяз.) - Полезная нагрузка
+- Параметр - toId (обяз.) - Кому переводим
+- Параметр - amount (обяз.) - Сумма перевода
+- Параметр - payload (необяз.) - Полезная нагрузка
 
 ```js
 const { Wallet } = require('vk-wallet-api');
@@ -116,7 +116,7 @@ const wallet = new Wallet(token);
 ---
 
 ### Создание callback-сервера
-- Метод - url (обяз.) - Ссылка на ваш новый callback-сервер
+- Параметр - url (обяз.) - Ссылка на ваш новый callback-сервер
 
 ```js
 const { Wallet } = require('vk-wallet-api');
@@ -145,8 +145,24 @@ const wallet = new Wallet(token);
 
 ---  
 
+### Валидация callback-данных
+- Параметр - event (обяз.) - Данные callback
+- Параметр - secret (обяз.) - Секретный ключ callback-сервера
+
+```js
+const { Wallet } = require('vk-wallet-api');
+const wallet = new Wallet(token);
+
+(async () => {
+    console.log(await wallet.validateCallBack(event, secret));
+})()
+```  
+На выходе вы получите секретный токен callback-сервера (если вы получили false - вы ошиблись в передаче параметров) 
+
+---  
+
 ### Контакты:
-- Вк разработчика - https://vk.com/ymenaidtopa.json
+- Разработчик API - https://vk.com/ymenaidtopa.json
 - Группа Wallet - https://vk.com/official_wallet
 - GitHub Репозиторий - https://github.com/lehada/vk-wallet-api
 - NpmJs ссылка - https://npmjs.com/package/vk-wallet-api

@@ -1,4 +1,5 @@
 const axios = require('axios');
+const md5 = require('md5');
 
 class Wallet {
     /**
@@ -116,8 +117,29 @@ class Wallet {
         const data = await this.call('delete', 'callback');
         return data.response;
     };
+
+    /**
+     * @description Метод валидации callback
+     * @param {*} event Event callback
+     * @param {*} secret Секретный ключ callback-сервера
+     * @returns {Boolean} True - заебись, false - не заебись
+     */
+    async validateCallBack(event, secret) {
+        let source_sign = event.sign;
+        delete event.sign;
+     
+        let params = [];
+        let sortedKeys = Object.keys(event).sort((a, b) => a.localeCompare(b));
+        sortedKeys.forEach(key => {
+            params.push(`${key}=${event[key]}`);
+        });
+     
+        let toEncode = params.join('&') + `&${secret}`;
+        let calculated_sign = md5(toEncode).toString();
+        return calculated_sign == source_sign;
+    };
 };
 
 module.exports = {
     Wallet
-}
+};
